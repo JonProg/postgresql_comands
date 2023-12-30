@@ -10,27 +10,27 @@ Projeto criado no intuito de listar os principais comandos do postgresql e quand
 
 #
 SELECT: Utilizado para recuperar dados de uma ou mais tabelas.
-```postgresql
+```sql
    SELECT * FROM nome_da_tabela;
 ```
 #
 INSERT: Usado para adicionar novos registros a uma tabela.
-```postgresql
+```sql
 INSERT INTO nome_da_tabela (coluna1, coluna2) VALUES (valor1, valor2);
 ```
 #
 UPDATE: Utilizado para modificar os registros existentes em uma tabela.
-```postgresql
+```sql
 UPDATE nome_da_tabela SET coluna1 = novo_valor WHERE condição;
 ```
 #
 DELETE: Usado para remover registros de uma tabela.
-```postgresql
+```sql
 DELETE FROM nome_da_tabela WHERE condição;
 ```
 #
 CREATE: Utilizado para criar novas tabelas, índices, visões ou outros objetos de banco de dados.
-```postgresql
+```sql
    CREATE TABLE nome_da_nova_tabela (
        coluna1 tipo_de_dado,
        coluna2 tipo_de_dado,
@@ -40,17 +40,17 @@ CREATE: Utilizado para criar novas tabelas, índices, visões ou outros objetos 
 ```
 #
 ALTER: Usado para modificar a estrutura de uma tabela existente.
-```postgresql
+```sql
 ALTER TABLE nome_da_tabela ADD coluna_nova tipo_de_dado;
 ```
 #
 DROP: Utilizado para excluir tabelas, índices, visões ou outros objetos de banco de dados.
-```postgresql
+```sql
    DROP TABLE nome_da_tabela;
 ```
 #
 GRANT: Usado para conceder permissões a usuários e grupos de usuários.
-```postgresql
+```sql
 GRANT tipo_de_permissao ON nome_da_tabela TO nome_do_usuario;
 ```
 
@@ -86,7 +86,7 @@ Tipo de permissões:
 
 #
 REVOKE: Utilizado para revogar permissões previamente concedidas.
-```postgresql
+```sql
 REVOKE DELETE ON nome_da_tabela FROM nome_do_usuario;
 ```
 #
@@ -97,7 +97,7 @@ Os "triggers" (gatilhos) no PostgreSQL são procedimentos armazenados que são a
 Aqui está um exemplo de como criar um trigger no PostgreSQL:
 Suponha que temos duas tabelas, "tabela_origem" e "tabela_destino", e queremos que sempre que um novo registro for inserido na "tabela_origem", um registro correspondente seja automaticamente inserido na "tabela_destino". Podemos fazer isso com um trigger da seguinte forma:
 
-~~~postgresql
+~~~sql
 CREATE OR REPLACE FUNCTION after_insert_trigger_function()
 RETURNS TRIGGER AS $$
 BEGIN
@@ -125,7 +125,7 @@ Os índices devem ser utilizados em colunas que são frequentemente usadas em cl
 Aqui está um exemplo de como criar um índice no PostgreSQL:
 Suponha que temos uma tabela chamada "clientes" e frequentemente realizamos consultas para buscar clientes com base em seus nomes. Podemos criar um índice na coluna "nome" da seguinte forma:
 
-~~~postgresql
+~~~sql
 CREATE INDEX indice_nome ON clientes (nome);
 ~~~
 
@@ -138,7 +138,7 @@ Neste exemplo, estamos criando um índice chamado "indice_nome" na tabela "clien
 
 O comando EXPLAIN ANALYZE no PostgreSQL é uma ferramenta poderosa para analisar o plano de execução de consultas SQL e obter informações detalhadas sobre como o PostgreSQL executa uma determinada consulta. Ele fornece estatísticas de desempenho reais, como o tempo de execução de cada etapa do plano de execução, o número de linhas processadas em cada etapa e outras informações úteis para identificar possíveis gargalos de desempenho.
 
-~~~postgresql
+~~~sql
 EXPLAIN ANALYZE SELECT * FROM tabela_exemplo WHERE coluna = 'valor';
 ~~~
 
